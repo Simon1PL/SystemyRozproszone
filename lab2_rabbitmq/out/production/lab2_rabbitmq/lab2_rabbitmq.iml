@@ -8,5 +8,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="lab2_rabbitmq" level="project" />
+    <orderEntry type="library" name="amqp-client-5.11.0-javadoc" level="project" />
   </component>
 </module>
