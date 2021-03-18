@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 
 public class Supplier {
+    private static int numberForUniqueOrderId = 10000;
 
     public static void main(String[] argv) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -31,7 +32,8 @@ public class Supplier {
                 System.out.println(message);
                 this.getChannel().basicAck(envelope.getDeliveryTag(), false);
                 // SEND ORDER
-                queuesController.sendMessage(QueuesController.TEAM_EXCHANGE, message.split(" ")[1], "Dostawca " + name + " dostarczył " + message.split(" ")[3] + " do " + message.split(" ")[1]);
+                String uniqueOrderId = name + "_" + numberForUniqueOrderId++;
+                queuesController.sendMessage(QueuesController.TEAM_EXCHANGE, message.split(" ")[1], "Dostawca " + name + " dostarczył " + message.split(" ")[3] + " do " + message.split(" ")[1] + " (Id zamówienia: " + uniqueOrderId + ")");
                 System.out.println("Dostarczono " + message.split(" ")[3] + " do " + message.split(" ")[1]);
             }
         };
