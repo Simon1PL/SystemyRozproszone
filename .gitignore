@@ -4,6 +4,7 @@ out
 RabitMQ
 out/
 RabitMQ/
+lab2_rabbitmq/RabbitMQ/
 
 # Compiled class file
 *.class
