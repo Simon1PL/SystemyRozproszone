@@ -2,6 +2,8 @@
 xD.txt
 out
 RabitMQ
+out/
+RabitMQ/
 
 # Compiled class file
 *.class
