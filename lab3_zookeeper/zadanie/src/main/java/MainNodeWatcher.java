@@ -7,15 +7,11 @@ public class MainNodeWatcher implements Watcher {
     private final ZooKeeper zk;
     private Process process;
 
-    public MainNodeWatcher(String exec, ZooKeeper zk, String znode) throws KeeperException, InterruptedException, IOException {
+    public MainNodeWatcher(String exec, ZooKeeper zk, String znode) {
         this.exec = exec;
         this.zk = zk;
         this.znode = znode;
-
-        if (zk.exists(znode, false) != null) {
-            process = Runtime.getRuntime().exec(exec);
-//            zk.addWatch(znode, new ChildWatcher(zk, znode), AddWatchMode.PERSISTENT_RECURSIVE);
-        }
+        checkIfExistAtStart();
     }
 
     @Override
@@ -43,6 +39,17 @@ public class MainNodeWatcher implements Watcher {
             } catch (KeeperException | InterruptedException e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    private void checkIfExistAtStart() {
+        try {
+            if (zk.exists(znode, false) != null) {
+                process = Runtime.getRuntime().exec(exec);
+//                zk.addWatch(znode, new ChildWatcher(zk, znode), AddWatchMode.PERSISTENT_RECURSIVE);
+            }
+        } catch (InterruptedException | KeeperException | IOException e) {
+            checkIfExistAtStart();
         }
     }
 }
