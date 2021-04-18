@@ -1,0 +1,7 @@
+zkServer2.cmd \..\conf\file1.cfg - this run server with client port on port 2181
+zkServer2.cmd \..\conf\file2.cfg - 2182
+zkServer2.cmd \..\conf\file3.cfg - 2183
+
+zkCli.cmd -server 127.0.0.1:2181
+zkCli.cmd -server 127.0.0.1:2182
+zkCli.cmd -server 127.0.0.1:2183
