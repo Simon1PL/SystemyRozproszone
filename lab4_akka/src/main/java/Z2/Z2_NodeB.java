@@ -5,7 +5,10 @@ import akka.actor.typed.javadsl.Behaviors;
 import akka.cluster.typed.*;
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
+
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.InputStreamReader;
 
 
 public class Z2_NodeB {
@@ -14,7 +17,13 @@ public class Z2_NodeB {
         return Behaviors.setup(
                 context -> {
 
-                    // TODO : text service
+                    ActorRef<ActorTextService.Command> actorTextService = context.spawn(ActorTextService.create(), "textService");
+
+                    System.out.println("Press enter to send message");
+                    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+                    br.readLine();
+
+                    actorTextService.tell(new ActorTextService.Request("hello"));
 
                     return Behaviors.receive(Void.class)
                             .onSignal(Terminated.class, sig -> Behaviors.stopped())

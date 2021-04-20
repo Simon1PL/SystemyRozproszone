@@ -14,7 +14,8 @@ public class Z2_NodeA {
         return Behaviors.setup(
                 context -> {
 
-                    // TODO : only workers
+                    context.spawn(ActorUpperCase.create(), "upper1");
+                    context.spawn(ActorUpperCase.create(), "upper2");
 
                     return Behaviors.receive(Void.class)
                             .onSignal(Terminated.class, sig -> Behaviors.stopped())
@@ -22,7 +23,7 @@ public class Z2_NodeA {
                 });
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         File configFile = new File("src/main/nodeA.conf");
         Config config = ConfigFactory.parseFile(configFile);
         System.out.println("Node A: config: " + config);
