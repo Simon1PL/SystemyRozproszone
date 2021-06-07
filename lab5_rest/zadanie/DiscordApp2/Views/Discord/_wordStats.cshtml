@@ -1,0 +1,30 @@
+﻿@model StatsModel
+
+@if (string.IsNullOrEmpty(Model.ChannelInfo.Word))
+{
+    <p class="text-danger">
+        Please type the word!
+    </p>
+}
+else
+{
+    <p>@Model.ResultsAmount results for:</p>
+    <p>Word: "@Model.ChannelInfo.Word" Channel ID: @Model.ChannelInfo.Channel Posts amount: @Model.ChannelInfo.HistoryDeep</p>
+    <table>
+        <thead>
+            <tr>
+                <th>User name</th>
+                <th>Posts amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (UserResult userResult in Model.UserResults)
+            {
+                <tr>
+                    <td>@userResult.User.username</td>
+                    <td>@userResult.Amount</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

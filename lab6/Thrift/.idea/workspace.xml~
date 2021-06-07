@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2fde3257-1774-4824-8cd2-5dbcc843fa81" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../lab4_akka/zadanie/src/main/java/Dispatcher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../lab4_akka/zadanie/src/main/java/MonitoringStation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../lab4_akka/zadanie/src/main/java/SatelliteAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lab3_zookeeper/apache-zookeeper-3.6.1-bin/conf/file1.cfg.dynamic.next" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab3_zookeeper/apache-zookeeper-3.6.1-bin/conf/file1.cfg.dynamic.next" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lab3_zookeeper/apache-zookeeper-3.6.1-bin/conf/file2.cfg.dynamic.next" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab3_zookeeper/apache-zookeeper-3.6.1-bin/conf/file2.cfg.dynamic.next" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lab3_zookeeper/apache-zookeeper-3.6.1-bin/conf/file3.cfg.dynamic.next" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab3_zookeeper/apache-zookeeper-3.6.1-bin/conf/file3.cfg.dynamic.next" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1sPVZKnKvFUdvc4BgeCeuMMWhd6" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/slf4j-api-1.7.28.jar" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RunManager">
+    <configuration name="ThriftClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="sr.thrift.client.ThriftClient" />
+      <module name="Thrift" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="sr.thrift.client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.ThriftClient" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2fde3257-1774-4824-8cd2-5dbcc843fa81" name="Default Changelist" comment="" />
+      <created>1620774265810</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1620774265810</updated>
+      <workItem from="1620774266840" duration="1418000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1620774671324">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1620774671324" />
+    <state x="440" y="94" key="SettingsEditor" timestamp="1620774684131">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="440" y="94" key="SettingsEditor/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1620774684131" />
+  </component>
+</project>

@@ -1,0 +1,10 @@
+﻿@model Exception
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">ERROR</h1>
+    <p class="text-danger">@Model.Message</p>
+    <p class="text-warning">@Model.StackTrace</p>
+</div>

@@ -1,0 +1,9 @@
+E:\Uczelnia2021\SystemyRozproszone\lab6\zadanie\BlazorApp2\Shared\bin\Debug\netstandard2.1\BlazorApp2.Shared.deps.json
+E:\Uczelnia2021\SystemyRozproszone\lab6\zadanie\BlazorApp2\Shared\bin\Debug\netstandard2.1\BlazorApp2.Shared.dll
+E:\Uczelnia2021\SystemyRozproszone\lab6\zadanie\BlazorApp2\Shared\obj\Debug\netstandard2.1\BlazorApp2.Shared.AssemblyInfoInputs.cache
+E:\Uczelnia2021\SystemyRozproszone\lab6\zadanie\BlazorApp2\Shared\obj\Debug\netstandard2.1\BlazorApp2.Shared.AssemblyInfo.cs
+E:\Uczelnia2021\SystemyRozproszone\lab6\zadanie\BlazorApp2\Shared\obj\Debug\netstandard2.1\BlazorApp2.Shared.csproj.CoreCompileInputs.cache
+E:\Uczelnia2021\SystemyRozproszone\lab6\zadanie\BlazorApp2\Shared\bin\Debug\netstandard2.1\BlazorApp2.Shared.pdb
+E:\Uczelnia2021\SystemyRozproszone\lab6\zadanie\BlazorApp2\Shared\obj\Debug\netstandard2.1\BlazorApp2.Shared.dll
+E:\Uczelnia2021\SystemyRozproszone\lab6\zadanie\BlazorApp2\Shared\obj\Debug\netstandard2.1\BlazorApp2.Shared.pdb
+E:\Uczelnia2021\SystemyRozproszone\lab6\zadanie\BlazorApp2\Shared\obj\Debug\netstandard2.1\BlazorApp2.Shared.csprojAssemblyReference.cache

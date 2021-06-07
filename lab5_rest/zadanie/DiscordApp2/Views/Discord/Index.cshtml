@@ -1,0 +1,46 @@
+﻿@model ChannelModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="text-center">
+    <h1>Statistics for the given word</h1>
+    <form id="form">
+        <p class="col-form-label">Channel</p>
+        @Html.DropDownListFor(x => x.Channel, new SelectList(ViewBag.Channels, "id", "name"))
+        <p class="col-form-label">Word</p>
+        @Html.EditorFor(m => m.Word, new { htmlAttributes = new { placeholder = "Type word" } })
+        <br />
+        <span class="text-warning">Eg. tak, nie, żółw, xD, błazen w masce</span>
+        <p class="col-form-label">Posts amount</p>
+        @Html.DropDownListFor(x => x.HistoryDeep, new SelectList(ViewBag.AvailablePostsAmount))
+        <br />
+        <span class="text-warning">Warning: If posts amount > 500 then it would take additional 5 sec cause api limits</span>
+        <button class="mt-3 btn-block btn-dark" type="submit">Run</button>
+    </form>
+</div>
+
+<div id="result"></div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script>
+    $(function () {
+        $("#form").submit(function (event) {
+            event.preventDefault();
+            $('body').css("cursor", "wait");
+            $("#result").html("Please wait...");
+            $.ajax({
+                url: '/Discord/GetStats',
+                type: "post",
+                data: $('#form').serialize(),
+                success: function (data) {
+                    $("#result").html(data);
+                },
+                error: function (response) {
+                    alert(response.statusText);
+                },
+                complete: function () {
+                    $('body').css("cursor", "initial");
+                }
+            });
+        });
+    });
+</script>

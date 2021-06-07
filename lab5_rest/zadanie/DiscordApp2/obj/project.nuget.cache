@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "bAcZX0w2YqiwgaeLyTkKLWepVrC86DletWA24jya1Cbx+LgXhApZ4TOCHYAaoCGBt+TkeYlU4Ije+6/ICp4ZGg==",
+  "success": true,
+  "projectFilePath": "E:\\Uczelnia2021\\SystemyRozproszone\\lab5_rest\\zadanie\\DiscordApp2\\DiscordApp2.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Szymon\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
