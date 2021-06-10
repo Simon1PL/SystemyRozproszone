@@ -1,8 +1,6 @@
-﻿using BlazorApp2.Shared;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Google.Protobuf.WellKnownTypes;
@@ -25,17 +23,22 @@ namespace BlazorApp2.Server.Controllers
             this.logger = logger;
         }
 
-        [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
+        [HttpGet("GetWeather/{name}")]
+        public WeatherReply GetWeather(string name)
         {
+            Console.WriteLine("Json endpoint");
             var rng = new Random();
-            return Enumerable.Range(1, 100).Select(index => new WeatherForecast
+            List<WeatherInfo> forecasts = Enumerable.Range(1, 100).Select(index => new WeatherInfo
             {
                 DateTimeStamp = Timestamp.FromDateTime(DateTime.UtcNow.AddDays(index)),
                 TemperatureC = rng.Next(-20, 55),
                 Summary = Summaries[rng.Next(Summaries.Length)]
-            })
-            .ToArray();
+            }).ToList();
+
+            WeatherReply result = new WeatherReply();
+            result.Name = string.IsNullOrEmpty(name) ? "no name" : name;
+            result.Forecasts.AddRange(forecasts); // ciekawostka: repeated z proto jest readonly
+            return result;
         }
     }
 }

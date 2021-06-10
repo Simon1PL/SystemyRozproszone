@@ -1,23 +1,22 @@
 @page "/fetchdata"
-@using BlazorApp2.Shared
 @inject HttpClient Http
 
-<h1>Weather forecast</h1>
+<h1>JSON</h1>
 
-<p>This component demonstrates fetching data from the server.</p>
-
-@if (forecasts == null)
+@if (string.IsNullOrEmpty(name))
 {
     <p><em>Loading...</em></p>
 }
 else
 {
+    @name
+    @response2.ToString();
+    @forecasts.ToString()
     <table class="table">
         <thead>
             <tr>
                 <th>Date</th>
                 <th>Temp. (C)</th>
-                <th>Temp. (F)</th>
                 <th>Summary</th>
             </tr>
         </thead>
@@ -25,9 +24,8 @@ else
             @foreach (var forecast in forecasts)
             {
                 <tr>
-                    <td>@forecast.Date.ToShortDateString()</td>
+                    <td>@forecast.DateTimeStamp.ToDateTime()</td>
                     <td>@forecast.TemperatureC</td>
-                    <td>@forecast.TemperatureF</td>
                     <td>@forecast.Summary</td>
                 </tr>
             }
@@ -36,11 +34,15 @@ else
 }
 
 @code {
-    private JsonWeatherForecast[] forecasts;
+    private IList<WeatherInfo> forecasts = new List<WeatherInfo>();
+    private string name;
+    private WeatherReply response2;
 
     protected override async Task OnInitializedAsync()
     {
-        forecasts = await Http.GetFromJsonAsync<JsonWeatherForecast[]>("JsonWeatherForecast");
+        WeatherReply response = await Http.GetFromJsonAsync<WeatherReply>("https://localhost:5001/WeatherForecast/GetWeather/name");
+        response2 = response;
+        name = response.Name;
+        forecasts = response.Forecasts;
     }
-
 }

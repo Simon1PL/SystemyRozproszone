@@ -8,9 +8,9 @@
 using grpc = global::Grpc.Core;
 
 namespace BlazorApp2 {
-  public static partial class WeatherForecasts
+  public static partial class WeatherForecast
   {
-    static readonly string __ServiceName = "WeatherForecast.WeatherForecasts";
+    static readonly string __ServiceName = "WeatherForecast.WeatherForecast";
 
     static void __Helper_SerializeMessage(global::Google.Protobuf.IMessage message, grpc::SerializationContext context)
     {
@@ -42,14 +42,14 @@ namespace BlazorApp2 {
       return parser.ParseFrom(context.PayloadAsNewBuffer());
     }
 
-    static readonly grpc::Marshaller<global::BlazorApp2.WeatherForecast> __Marshaller_WeatherForecast_WeatherForecast = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::BlazorApp2.WeatherForecast.Parser));
+    static readonly grpc::Marshaller<global::BlazorApp2.WeatherRequest> __Marshaller_WeatherForecast_WeatherRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::BlazorApp2.WeatherRequest.Parser));
     static readonly grpc::Marshaller<global::BlazorApp2.WeatherReply> __Marshaller_WeatherForecast_WeatherReply = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::BlazorApp2.WeatherReply.Parser));
 
-    static readonly grpc::Method<global::BlazorApp2.WeatherForecast, global::BlazorApp2.WeatherReply> __Method_GetWeather = new grpc::Method<global::BlazorApp2.WeatherForecast, global::BlazorApp2.WeatherReply>(
+    static readonly grpc::Method<global::BlazorApp2.WeatherRequest, global::BlazorApp2.WeatherReply> __Method_GetWeather = new grpc::Method<global::BlazorApp2.WeatherRequest, global::BlazorApp2.WeatherReply>(
         grpc::MethodType.Unary,
         __ServiceName,
         "GetWeather",
-        __Marshaller_WeatherForecast_WeatherForecast,
+        __Marshaller_WeatherForecast_WeatherRequest,
         __Marshaller_WeatherForecast_WeatherReply);
 
     /// <summary>Service descriptor</summary>
@@ -58,66 +58,66 @@ namespace BlazorApp2 {
       get { return global::BlazorApp2.WeatherReflection.Descriptor.Services[0]; }
     }
 
-    /// <summary>Base class for server-side implementations of WeatherForecasts</summary>
-    [grpc::BindServiceMethod(typeof(WeatherForecasts), "BindService")]
-    public abstract partial class WeatherForecastsBase
+    /// <summary>Base class for server-side implementations of WeatherForecast</summary>
+    [grpc::BindServiceMethod(typeof(WeatherForecast), "BindService")]
+    public abstract partial class WeatherForecastBase
     {
-      public virtual global::System.Threading.Tasks.Task<global::BlazorApp2.WeatherReply> GetWeather(global::BlazorApp2.WeatherForecast request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::BlazorApp2.WeatherReply> GetWeather(global::BlazorApp2.WeatherRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
     }
 
-    /// <summary>Client for WeatherForecasts</summary>
-    public partial class WeatherForecastsClient : grpc::ClientBase<WeatherForecastsClient>
+    /// <summary>Client for WeatherForecast</summary>
+    public partial class WeatherForecastClient : grpc::ClientBase<WeatherForecastClient>
     {
-      /// <summary>Creates a new client for WeatherForecasts</summary>
+      /// <summary>Creates a new client for WeatherForecast</summary>
       /// <param name="channel">The channel to use to make remote calls.</param>
-      public WeatherForecastsClient(grpc::ChannelBase channel) : base(channel)
+      public WeatherForecastClient(grpc::ChannelBase channel) : base(channel)
       {
       }
-      /// <summary>Creates a new client for WeatherForecasts that uses a custom <c>CallInvoker</c>.</summary>
+      /// <summary>Creates a new client for WeatherForecast that uses a custom <c>CallInvoker</c>.</summary>
       /// <param name="callInvoker">The callInvoker to use to make remote calls.</param>
-      public WeatherForecastsClient(grpc::CallInvoker callInvoker) : base(callInvoker)
+      public WeatherForecastClient(grpc::CallInvoker callInvoker) : base(callInvoker)
       {
       }
       /// <summary>Protected parameterless constructor to allow creation of test doubles.</summary>
-      protected WeatherForecastsClient() : base()
+      protected WeatherForecastClient() : base()
       {
       }
       /// <summary>Protected constructor to allow creation of configured clients.</summary>
       /// <param name="configuration">The client configuration.</param>
-      protected WeatherForecastsClient(ClientBaseConfiguration configuration) : base(configuration)
+      protected WeatherForecastClient(ClientBaseConfiguration configuration) : base(configuration)
       {
       }
 
-      public virtual global::BlazorApp2.WeatherReply GetWeather(global::BlazorApp2.WeatherForecast request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::BlazorApp2.WeatherReply GetWeather(global::BlazorApp2.WeatherRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return GetWeather(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::BlazorApp2.WeatherReply GetWeather(global::BlazorApp2.WeatherForecast request, grpc::CallOptions options)
+      public virtual global::BlazorApp2.WeatherReply GetWeather(global::BlazorApp2.WeatherRequest request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_GetWeather, null, options, request);
       }
-      public virtual grpc::AsyncUnaryCall<global::BlazorApp2.WeatherReply> GetWeatherAsync(global::BlazorApp2.WeatherForecast request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::BlazorApp2.WeatherReply> GetWeatherAsync(global::BlazorApp2.WeatherRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return GetWeatherAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncUnaryCall<global::BlazorApp2.WeatherReply> GetWeatherAsync(global::BlazorApp2.WeatherForecast request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::BlazorApp2.WeatherReply> GetWeatherAsync(global::BlazorApp2.WeatherRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_GetWeather, null, options, request);
       }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
-      protected override WeatherForecastsClient NewInstance(ClientBaseConfiguration configuration)
+      protected override WeatherForecastClient NewInstance(ClientBaseConfiguration configuration)
       {
-        return new WeatherForecastsClient(configuration);
+        return new WeatherForecastClient(configuration);
       }
     }
 
     /// <summary>Creates service definition that can be registered with a server</summary>
     /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
-    public static grpc::ServerServiceDefinition BindService(WeatherForecastsBase serviceImpl)
+    public static grpc::ServerServiceDefinition BindService(WeatherForecastBase serviceImpl)
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
           .AddMethod(__Method_GetWeather, serviceImpl.GetWeather).Build();
@@ -127,9 +127,9 @@ namespace BlazorApp2 {
     /// Note: this method is part of an experimental API that can change or be removed without any prior notice.</summary>
     /// <param name="serviceBinder">Service methods will be bound by calling <c>AddMethod</c> on this object.</param>
     /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
-    public static void BindService(grpc::ServiceBinderBase serviceBinder, WeatherForecastsBase serviceImpl)
+    public static void BindService(grpc::ServiceBinderBase serviceBinder, WeatherForecastBase serviceImpl)
     {
-      serviceBinder.AddMethod(__Method_GetWeather, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::BlazorApp2.WeatherForecast, global::BlazorApp2.WeatherReply>(serviceImpl.GetWeather));
+      serviceBinder.AddMethod(__Method_GetWeather, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::BlazorApp2.WeatherRequest, global::BlazorApp2.WeatherReply>(serviceImpl.GetWeather));
     }
 
   }

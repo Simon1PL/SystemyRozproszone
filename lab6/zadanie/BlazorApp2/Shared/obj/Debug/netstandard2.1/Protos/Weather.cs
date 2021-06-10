@@ -25,19 +25,21 @@ namespace BlazorApp2 {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChRQcm90b3Mvd2VhdGhlci5wcm90bxIPV2VhdGhlckZvcmVjYXN0Gh9nb29n",
-            "bGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvIkMKDFdlYXRoZXJSZXBseRIz",
-            "Cglmb3JlY2FzdHMYASADKAsyIC5XZWF0aGVyRm9yZWNhc3QuV2VhdGhlckZv",
-            "cmVjYXN0ImsKD1dlYXRoZXJGb3JlY2FzdBIxCg1kYXRlVGltZVN0YW1wGAEg",
-            "ASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIUCgx0ZW1wZXJhdHVy",
-            "ZUMYAiABKAUSDwoHc3VtbWFyeRgDIAEoCTJhChBXZWF0aGVyRm9yZWNhc3Rz",
-            "Ek0KCkdldFdlYXRoZXISIC5XZWF0aGVyRm9yZWNhc3QuV2VhdGhlckZvcmVj",
-            "YXN0Gh0uV2VhdGhlckZvcmVjYXN0LldlYXRoZXJSZXBseUINqgIKQmxhem9y",
-            "QXBwMmIGcHJvdG8z"));
+            "bGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvIk0KDFdlYXRoZXJSZXBseRIv",
+            "Cglmb3JlY2FzdHMYASADKAsyHC5XZWF0aGVyRm9yZWNhc3QuV2VhdGhlcklu",
+            "Zm8SDAoEbmFtZRgCIAEoCSIeCg5XZWF0aGVyUmVxdWVzdBIMCgRuYW1lGAEg",
+            "ASgJImcKC1dlYXRoZXJJbmZvEjEKDWRhdGVUaW1lU3RhbXAYASABKAsyGi5n",
+            "b29nbGUucHJvdG9idWYuVGltZXN0YW1wEhQKDHRlbXBlcmF0dXJlQxgCIAEo",
+            "BRIPCgdzdW1tYXJ5GAMgASgJMl8KD1dlYXRoZXJGb3JlY2FzdBJMCgpHZXRX",
+            "ZWF0aGVyEh8uV2VhdGhlckZvcmVjYXN0LldlYXRoZXJSZXF1ZXN0Gh0uV2Vh",
+            "dGhlckZvcmVjYXN0LldlYXRoZXJSZXBseUINqgIKQmxhem9yQXBwMmIGcHJv",
+            "dG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::BlazorApp2.WeatherReply), global::BlazorApp2.WeatherReply.Parser, new[]{ "Forecasts" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::BlazorApp2.WeatherForecast), global::BlazorApp2.WeatherForecast.Parser, new[]{ "DateTimeStamp", "TemperatureC", "Summary" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::BlazorApp2.WeatherReply), global::BlazorApp2.WeatherReply.Parser, new[]{ "Forecasts", "Name" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::BlazorApp2.WeatherRequest), global::BlazorApp2.WeatherRequest.Parser, new[]{ "Name" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::BlazorApp2.WeatherInfo), global::BlazorApp2.WeatherInfo.Parser, new[]{ "DateTimeStamp", "TemperatureC", "Summary" }, null, null, null, null)
           }));
     }
     #endregion
@@ -74,6 +76,7 @@ namespace BlazorApp2 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public WeatherReply(WeatherReply other) : this() {
       forecasts_ = other.forecasts_.Clone();
+      name_ = other.name_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -84,12 +87,23 @@ namespace BlazorApp2 {
 
     /// <summary>Field number for the "forecasts" field.</summary>
     public const int ForecastsFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::BlazorApp2.WeatherForecast> _repeated_forecasts_codec
-        = pb::FieldCodec.ForMessage(10, global::BlazorApp2.WeatherForecast.Parser);
-    private readonly pbc::RepeatedField<global::BlazorApp2.WeatherForecast> forecasts_ = new pbc::RepeatedField<global::BlazorApp2.WeatherForecast>();
+    private static readonly pb::FieldCodec<global::BlazorApp2.WeatherInfo> _repeated_forecasts_codec
+        = pb::FieldCodec.ForMessage(10, global::BlazorApp2.WeatherInfo.Parser);
+    private readonly pbc::RepeatedField<global::BlazorApp2.WeatherInfo> forecasts_ = new pbc::RepeatedField<global::BlazorApp2.WeatherInfo>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::BlazorApp2.WeatherForecast> Forecasts {
+    public pbc::RepeatedField<global::BlazorApp2.WeatherInfo> Forecasts {
       get { return forecasts_; }
+    }
+
+    /// <summary>Field number for the "name" field.</summary>
+    public const int NameFieldNumber = 2;
+    private string name_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Name {
+      get { return name_; }
+      set {
+        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -106,6 +120,7 @@ namespace BlazorApp2 {
         return true;
       }
       if(!forecasts_.Equals(other.forecasts_)) return false;
+      if (Name != other.Name) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -113,6 +128,7 @@ namespace BlazorApp2 {
     public override int GetHashCode() {
       int hash = 1;
       hash ^= forecasts_.GetHashCode();
+      if (Name.Length != 0) hash ^= Name.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -130,6 +146,10 @@ namespace BlazorApp2 {
       output.WriteRawMessage(this);
     #else
       forecasts_.WriteTo(output, _repeated_forecasts_codec);
+      if (Name.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Name);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -140,6 +160,10 @@ namespace BlazorApp2 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
       forecasts_.WriteTo(ref output, _repeated_forecasts_codec);
+      if (Name.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Name);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -150,6 +174,9 @@ namespace BlazorApp2 {
     public int CalculateSize() {
       int size = 0;
       size += forecasts_.CalculateSize(_repeated_forecasts_codec);
+      if (Name.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -162,6 +189,9 @@ namespace BlazorApp2 {
         return;
       }
       forecasts_.Add(other.forecasts_);
+      if (other.Name.Length != 0) {
+        Name = other.Name;
+      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -178,6 +208,10 @@ namespace BlazorApp2 {
             break;
           case 10: {
             forecasts_.AddEntriesFrom(input, _repeated_forecasts_codec);
+            break;
+          }
+          case 18: {
+            Name = input.ReadString();
             break;
           }
         }
@@ -198,6 +232,10 @@ namespace BlazorApp2 {
             forecasts_.AddEntriesFrom(ref input, _repeated_forecasts_codec);
             break;
           }
+          case 18: {
+            Name = input.ReadString();
+            break;
+          }
         }
       }
     }
@@ -205,15 +243,15 @@ namespace BlazorApp2 {
 
   }
 
-  public sealed partial class WeatherForecast : pb::IMessage<WeatherForecast>
+  public sealed partial class WeatherRequest : pb::IMessage<WeatherRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<WeatherForecast> _parser = new pb::MessageParser<WeatherForecast>(() => new WeatherForecast());
+    private static readonly pb::MessageParser<WeatherRequest> _parser = new pb::MessageParser<WeatherRequest>(() => new WeatherRequest());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<WeatherForecast> Parser { get { return _parser; } }
+    public static pb::MessageParser<WeatherRequest> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -226,14 +264,186 @@ namespace BlazorApp2 {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public WeatherForecast() {
+    public WeatherRequest() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public WeatherForecast(WeatherForecast other) : this() {
+    public WeatherRequest(WeatherRequest other) : this() {
+      name_ = other.name_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public WeatherRequest Clone() {
+      return new WeatherRequest(this);
+    }
+
+    /// <summary>Field number for the "name" field.</summary>
+    public const int NameFieldNumber = 1;
+    private string name_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Name {
+      get { return name_; }
+      set {
+        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as WeatherRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(WeatherRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Name != other.Name) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Name.Length != 0) hash ^= Name.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Name.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Name);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Name.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Name);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Name.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(WeatherRequest other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Name.Length != 0) {
+        Name = other.Name;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            Name = input.ReadString();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            Name = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class WeatherInfo : pb::IMessage<WeatherInfo>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<WeatherInfo> _parser = new pb::MessageParser<WeatherInfo>(() => new WeatherInfo());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<WeatherInfo> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::BlazorApp2.WeatherReflection.Descriptor.MessageTypes[2]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public WeatherInfo() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public WeatherInfo(WeatherInfo other) : this() {
       dateTimeStamp_ = other.dateTimeStamp_ != null ? other.dateTimeStamp_.Clone() : null;
       temperatureC_ = other.temperatureC_;
       summary_ = other.summary_;
@@ -241,8 +451,8 @@ namespace BlazorApp2 {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public WeatherForecast Clone() {
-      return new WeatherForecast(this);
+    public WeatherInfo Clone() {
+      return new WeatherInfo(this);
     }
 
     /// <summary>Field number for the "dateTimeStamp" field.</summary>
@@ -280,11 +490,11 @@ namespace BlazorApp2 {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as WeatherForecast);
+      return Equals(other as WeatherInfo);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(WeatherForecast other) {
+    public bool Equals(WeatherInfo other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -377,7 +587,7 @@ namespace BlazorApp2 {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(WeatherForecast other) {
+    public void MergeFrom(WeatherInfo other) {
       if (other == null) {
         return;
       }

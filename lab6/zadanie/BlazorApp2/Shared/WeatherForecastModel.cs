@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BlazorApp2.Shared
 {
-    public class JsonWeatherForecast
+    public class WeatherForecastModel
     {
         public DateTime Date { get; set; }
 

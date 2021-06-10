@@ -24,13 +24,17 @@ namespace BlazorApp2.Server
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddGrpc();
-            services.AddControllersWithViews();
-            services.AddRazorPages();
+            services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseCors(builder => builder
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader());
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -44,8 +48,6 @@ namespace BlazorApp2.Server
             }
 
             app.UseHttpsRedirection();
-            app.UseBlazorFrameworkFiles();
-            app.UseStaticFiles();
 
             app.UseRouting();
 
@@ -54,9 +56,7 @@ namespace BlazorApp2.Server
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapGrpcService<WeatherService>().EnableGrpcWeb();
-                endpoints.MapRazorPages();
                 endpoints.MapControllers();
-                endpoints.MapFallbackToFile("index.html");
             });
         }
     }

@@ -1,9 +1,7 @@
 @page "/fetchdatagrpc"
-@using BlazorApp2.Shared
-@inject WeatherForecasts.WeatherForecastsClient WeatherForecastsClient
+@inject WeatherForecast.WeatherForecastClient WeatherForecastsClient
 
-<h1>Weather forecast</h1>
-<p>This component demonstrates fetching data from the server.</p>
+<h1>GRPC</h1>
 
 @if (forecasts == null)
 {
@@ -11,6 +9,7 @@
 }
 else
 {
+    @name
     <table class="table">
         <thead>
             <tr>
@@ -27,7 +26,6 @@ else
                     <td>@forecast.TemperatureC</td>
                     <td>@forecast.Summary</td>
                 </tr>
-
             }
         </tbody>
     </table>
@@ -35,9 +33,12 @@ else
 
 @code
 {
-    private IList<WeatherForecast> forecasts;
+    private IList<WeatherInfo> forecasts;
+    private string name;
     protected override async Task OnInitializedAsync()
     {
-        forecasts = (await WeatherForecastsClient.GetWeatherAsync(new WeatherForecast())).Forecasts;
+        WeatherReply response = await WeatherForecastsClient.GetWeatherAsync(new WeatherRequest());
+        forecasts = response.Forecasts;
+        name = response.Name;
     }
 }

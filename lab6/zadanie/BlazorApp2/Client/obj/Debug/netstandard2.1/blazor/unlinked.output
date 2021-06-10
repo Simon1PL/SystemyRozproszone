@@ -29,8 +29,8 @@ obj\Debug\netstandard2.1\blazor\unlinked\System.Data.DataSetExtensions.dll
 obj\Debug\netstandard2.1\blazor\unlinked\System.Data.dll
 obj\Debug\netstandard2.1\blazor\unlinked\System.Numerics.Vectors.dll
 obj\Debug\netstandard2.1\blazor\unlinked\System.Text.Encodings.Web.dll
-obj\Debug\netstandard2.1\blazor\unlinked\Grpc.Core.Api.dll
 obj\Debug\netstandard2.1\blazor\unlinked\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+obj\Debug\netstandard2.1\blazor\unlinked\Grpc.Core.Api.dll
 obj\Debug\netstandard2.1\blazor\unlinked\Grpc.Net.Client.Web.dll
 obj\Debug\netstandard2.1\blazor\unlinked\Google.Protobuf.dll
 obj\Debug\netstandard2.1\blazor\unlinked\Microsoft.AspNetCore.Components.Web.dll

@@ -6,15 +6,20 @@ package WeatherForecast;
 
 import "google/protobuf/timestamp.proto"; 
 
-service WeatherForecasts { 
-	rpc GetWeather (WeatherForecast) returns (WeatherReply); 
+service WeatherForecast { 
+	rpc GetWeather (WeatherRequest) returns (WeatherReply); 
 } 
 
 message WeatherReply { 
-	repeated WeatherForecast forecasts = 1; 
+	repeated WeatherInfo forecasts = 1; 
+	string name = 2;
 } 
 
-message WeatherForecast { 
+message WeatherRequest {
+  string name = 1;
+}
+
+message WeatherInfo { 
 	google.protobuf.Timestamp dateTimeStamp = 1; 
 	int32 temperatureC = 2; 
 	string summary = 3; 
