@@ -5,14 +5,11 @@ lab3_zookeeper/apache-zookeeper-3.6.1-bin/Zookeeper/zk2/version-2/
 lab3_zookeeper/apache-zookeeper-3.6.1-bin/Zookeeper/zk1/version-2/
 xD.txt
 out
-*obj*
-*bin/*
-*.vs*
 RabitMQ
 out/
 RabitMQ/
 lab2_rabbitmq/RabbitMQ/
-lab6/zadanie/BlazorApp2/Client/obj/
+lab6/zadanie/BlazorApp2/Client/obj/ #DONT WORK...
 
 # Compiled class file
 *.class
