@@ -20,7 +20,7 @@ namespace BlazorApp2.Shared.Services
 			var rng = new Random();
 
 			reply.Name = request.Name;
-			reply.Forecasts.Add(Enumerable.Range(1, 100).Select(index => new WeatherInfo
+			reply.Forecasts.Add(Enumerable.Range(1, 100).Select(index => new WeatherInfo // ciekawostka: repeated z proto jest readonly
 			{
 				DateTimeStamp = Timestamp.FromDateTime(DateTime.UtcNow.AddDays(index)),
 				TemperatureC = rng.Next(20, 55),

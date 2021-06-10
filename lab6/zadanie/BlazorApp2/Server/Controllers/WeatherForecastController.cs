@@ -4,6 +4,7 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Google.Protobuf.WellKnownTypes;
+using BlazorApp2.Shared;
 
 namespace BlazorApp2.Server.Controllers
 {
@@ -24,20 +25,20 @@ namespace BlazorApp2.Server.Controllers
         }
 
         [HttpGet("GetWeather/{name}")]
-        public WeatherReply GetWeather(string name)
+        public WeatherReplyModel GetWeather(string name)
         {
             Console.WriteLine("Json endpoint");
             var rng = new Random();
-            List<WeatherInfo> forecasts = Enumerable.Range(1, 100).Select(index => new WeatherInfo
+            WeatherReplyModel result = new WeatherReplyModel
             {
-                DateTimeStamp = Timestamp.FromDateTime(DateTime.UtcNow.AddDays(index)),
-                TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
-            }).ToList();
-
-            WeatherReply result = new WeatherReply();
-            result.Name = string.IsNullOrEmpty(name) ? "no name" : name;
-            result.Forecasts.AddRange(forecasts); // ciekawostka: repeated z proto jest readonly
+                Name = string.IsNullOrEmpty(name) ? "no name" : name,
+                Forecasts = Enumerable.Range(1, 100).Select(index => new WeatherInfoModel
+                {
+                    Date = DateTime.UtcNow.AddDays(index),
+                    TemperatureC = rng.Next(-20, 55),
+                    Summary = Summaries[rng.Next(Summaries.Length)]
+                }).ToList()
+            };
             return result;
         }
     }

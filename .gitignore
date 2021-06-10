@@ -10,6 +10,11 @@ out/
 RabitMQ/
 lab2_rabbitmq/RabbitMQ/
 lab6/zadanie/BlazorApp2/Client/obj/ #DONT WORK...
+lab6/zadanie/BlazorApp2/Client/bin/
+lab6/zadanie/BlazorApp2/Server/obj/ 
+lab6/zadanie/BlazorApp2/Server/bin/ 
+lab6/zadanie/BlazorApp2/Shared/obj/ 
+lab6/zadanie/BlazorApp2/Shared/bin/ 
 
 # Compiled class file
 *.class

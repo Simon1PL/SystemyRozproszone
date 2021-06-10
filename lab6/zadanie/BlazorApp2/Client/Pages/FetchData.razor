@@ -1,5 +1,6 @@
 @page "/fetchdata"
 @inject HttpClient Http
+@using BlazorApp2.Shared;
 
 <h1>JSON</h1>
 
@@ -10,8 +11,6 @@
 else
 {
     @name
-    @response2.ToString();
-    @forecasts.ToString()
     <table class="table">
         <thead>
             <tr>
@@ -24,7 +23,7 @@ else
             @foreach (var forecast in forecasts)
             {
                 <tr>
-                    <td>@forecast.DateTimeStamp.ToDateTime()</td>
+                    <td>@forecast.Date</td>
                     <td>@forecast.TemperatureC</td>
                     <td>@forecast.Summary</td>
                 </tr>
@@ -34,14 +33,12 @@ else
 }
 
 @code {
-    private IList<WeatherInfo> forecasts = new List<WeatherInfo>();
+    private IList<WeatherInfoModel> forecasts = new List<WeatherInfoModel>();
     private string name;
-    private WeatherReply response2;
 
     protected override async Task OnInitializedAsync()
     {
-        WeatherReply response = await Http.GetFromJsonAsync<WeatherReply>("https://localhost:5001/WeatherForecast/GetWeather/name");
-        response2 = response;
+        WeatherReplyModel response = await Http.GetFromJsonAsync<WeatherReplyModel>("https://localhost:5001/WeatherForecast/GetWeather/name");
         name = response.Name;
         forecasts = response.Forecasts;
     }

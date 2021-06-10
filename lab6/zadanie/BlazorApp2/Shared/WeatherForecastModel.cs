@@ -4,14 +4,17 @@ using System.Text;
 
 namespace BlazorApp2.Shared
 {
-    public class WeatherForecastModel
+    public class WeatherReplyModel
     {
-        public DateTime Date { get; set; }
+        public string Name { get; set; }
 
+        public List<WeatherInfoModel> Forecasts { get; set; }
+    }
+
+    public class WeatherInfoModel
+    {
         public int TemperatureC { get; set; }
-
         public string Summary { get; set; }
-
-        public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+        public DateTime Date { get; set; }
     }
 }
