@@ -37,7 +37,7 @@ else
     private string name;
     protected override async Task OnInitializedAsync()
     {
-        WeatherReply response = await WeatherForecastsClient.GetWeatherAsync(new WeatherRequest());
+        WeatherReply response = await WeatherForecastsClient.GetWeatherAsync(new WeatherRequest() { Name = "some name from request"});
         forecasts = response.Forecasts;
         name = response.Name;
     }
