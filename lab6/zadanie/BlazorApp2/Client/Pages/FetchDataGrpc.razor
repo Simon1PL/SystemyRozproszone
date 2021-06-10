@@ -1,5 +1,6 @@
 @page "/fetchdatagrpc"
 @inject WeatherForecast.WeatherForecastClient WeatherForecastsClient
+@using System.Diagnostics;
 
 <h1>GRPC</h1>
 
@@ -9,7 +10,8 @@
 }
 else
 {
-    @name
+    <p>@name</p>
+    <p>time: @time</p>
     <table class="table">
         <thead>
             <tr>
@@ -35,9 +37,15 @@ else
 {
     private IList<WeatherInfo> forecasts;
     private string name;
+    private string time;
+
     protected override async Task OnInitializedAsync()
     {
-        WeatherReply response = await WeatherForecastsClient.GetWeatherAsync(new WeatherRequest() { Name = "some name from request"});
+        Stopwatch sw = new Stopwatch();
+        sw.Start();
+        WeatherReply response = await WeatherForecastsClient.GetWeatherAsync(new WeatherRequest() { Name = "some name from request" });
+        sw.Stop();
+        time = sw.Elapsed.ToString();
         forecasts = response.Forecasts;
         name = response.Name;
     }

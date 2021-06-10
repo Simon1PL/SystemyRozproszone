@@ -1,6 +1,7 @@
 @page "/fetchdata"
 @inject HttpClient Http
 @using BlazorApp2.Shared;
+@using System.Diagnostics;
 
 <h1>JSON</h1>
 
@@ -10,7 +11,8 @@
 }
 else
 {
-    @name
+    <p>@name</p>
+    <p>time: @time</p>
     <table class="table">
         <thead>
             <tr>
@@ -35,10 +37,16 @@ else
 @code {
     private IList<WeatherInfoModel> forecasts = new List<WeatherInfoModel>();
     private string name;
+    private string time;
 
     protected override async Task OnInitializedAsync()
     {
+        Stopwatch sw = new Stopwatch();
+        sw.Start();
         WeatherReplyModel response = await Http.GetFromJsonAsync<WeatherReplyModel>("https://localhost:5001/WeatherForecast/GetWeather/name");
+        sw.Stop();
+        time = sw.Elapsed.ToString();
+
         name = response.Name;
         forecasts = response.Forecasts;
     }
