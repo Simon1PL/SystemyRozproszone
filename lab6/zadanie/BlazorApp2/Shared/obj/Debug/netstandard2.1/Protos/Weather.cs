@@ -32,8 +32,10 @@ namespace BlazorApp2 {
             "b29nbGUucHJvdG9idWYuVGltZXN0YW1wEhQKDHRlbXBlcmF0dXJlQxgCIAEo",
             "BRIPCgdzdW1tYXJ5GAMgASgJMl8KD1dlYXRoZXJGb3JlY2FzdBJMCgpHZXRX",
             "ZWF0aGVyEh8uV2VhdGhlckZvcmVjYXN0LldlYXRoZXJSZXF1ZXN0Gh0uV2Vh",
-            "dGhlckZvcmVjYXN0LldlYXRoZXJSZXBseUINqgIKQmxhem9yQXBwMmIGcHJv",
-            "dG8z"));
+            "dGhlckZvcmVjYXN0LldlYXRoZXJSZXBseTJhChBXZWF0aGVyRm9yZWNhc3Qy",
+            "Ek0KC0dldFdlYXRoZXIyEh8uV2VhdGhlckZvcmVjYXN0LldlYXRoZXJSZXF1",
+            "ZXN0Gh0uV2VhdGhlckZvcmVjYXN0LldlYXRoZXJSZXBseUINqgIKQmxhem9y",
+            "QXBwMmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {

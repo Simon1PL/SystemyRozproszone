@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Grpc.Net.Client;
 using Grpc.Net.Client.Web;
+using System.Diagnostics;
 
 namespace BlazorApp2.Client
 {

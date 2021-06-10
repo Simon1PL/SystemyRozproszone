@@ -56,6 +56,7 @@ namespace BlazorApp2.Server
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapGrpcService<WeatherService>().EnableGrpcWeb();
+                endpoints.MapGrpcService<GrpcService>();
                 endpoints.MapControllers();
             });
         }

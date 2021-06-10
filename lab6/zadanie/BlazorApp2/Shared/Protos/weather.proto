@@ -10,6 +10,10 @@ service WeatherForecast {
 	rpc GetWeather (WeatherRequest) returns (WeatherReply); 
 } 
 
+service WeatherForecast2 { 
+	rpc GetWeather2 (WeatherRequest) returns (WeatherReply); 
+} 
+
 message WeatherReply { 
 	repeated WeatherInfo forecasts = 1; 
 	string name = 2;

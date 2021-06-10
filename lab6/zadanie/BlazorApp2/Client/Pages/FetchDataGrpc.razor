@@ -2,7 +2,7 @@
 @inject WeatherForecast.WeatherForecastClient WeatherForecastsClient
 @using System.Diagnostics;
 
-<h1>GRPC</h1>
+<h1>GRPC-WEB</h1>
 
 @if (forecasts == null)
 {
@@ -11,7 +11,7 @@
 else
 {
     <p>@name</p>
-    <p>time: @time</p>
+    <p>average time(100 attempts): @time</p>
     <table class="table">
         <thead>
             <tr>
@@ -37,15 +37,20 @@ else
 {
     private IList<WeatherInfo> forecasts;
     private string name;
-    private string time;
+    private TimeSpan time;
 
     protected override async Task OnInitializedAsync()
     {
         Stopwatch sw = new Stopwatch();
-        sw.Start();
-        WeatherReply response = await WeatherForecastsClient.GetWeatherAsync(new WeatherRequest() { Name = "some name from request" });
-        sw.Stop();
-        time = sw.Elapsed.ToString();
+        WeatherReply response = null;
+        for (int i = 0; i < 100; i++)
+        {
+            sw.Start();
+            response = await WeatherForecastsClient.GetWeatherAsync(new WeatherRequest() { Name = "some name from request" });
+            sw.Stop();
+            time += sw.Elapsed;
+        }
+        time /= 100;
         forecasts = response.Forecasts;
         name = response.Name;
     }

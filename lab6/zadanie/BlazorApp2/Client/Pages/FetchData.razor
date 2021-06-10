@@ -12,7 +12,7 @@
 else
 {
     <p>@name</p>
-    <p>time: @time</p>
+    <p>average time(100 attempts): @time</p>
     <table class="table">
         <thead>
             <tr>
@@ -37,16 +37,20 @@ else
 @code {
     private IList<WeatherInfoModel> forecasts = new List<WeatherInfoModel>();
     private string name;
-    private string time;
+    private TimeSpan time;
 
     protected override async Task OnInitializedAsync()
     {
         Stopwatch sw = new Stopwatch();
-        sw.Start();
-        WeatherReplyModel response = await Http.GetFromJsonAsync<WeatherReplyModel>("https://localhost:5001/WeatherForecast/GetWeather/name");
-        sw.Stop();
-        time = sw.Elapsed.ToString();
-
+        WeatherReplyModel response = null;
+        for (int i = 0; i < 100; i++)
+        {
+            sw.Start();
+            response = await Http.GetFromJsonAsync<WeatherReplyModel>("https://localhost:5001/WeatherForecast/GetWeather/name");
+            sw.Stop();
+            time += sw.Elapsed;
+        }
+        time /= 100;
         name = response.Name;
         forecasts = response.Forecasts;
     }

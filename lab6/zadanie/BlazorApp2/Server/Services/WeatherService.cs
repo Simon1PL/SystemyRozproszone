@@ -15,7 +15,7 @@ namespace BlazorApp2.Shared.Services
 
 		public override Task<WeatherReply> GetWeather(WeatherRequest request, ServerCallContext context)
 		{
-			Console.WriteLine("Grpc endpoint");
+			Console.WriteLine("Grpc-web endpoint");
 			var reply = new WeatherReply();
 			var rng = new Random();
 
