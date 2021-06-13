@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "qJWkocLryeW6zBjc/mmq1Z5rB1635OBopybewWD5ySaWfqpPNthsqyRlRCMyqNnNmkn5nJ6UU6dUCxn6lOSNZA==",
+  "success": true,
+  "projectFilePath": "E:\\Uczelnia2021\\SystemyRozproszone\\lab6\\zadanie\\Ice\\ClientIce\\ClientIce.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Szymon\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\Szymon\\.nuget\\packages\\zeroc.ice.net\\3.7.5\\zeroc.ice.net.3.7.5.nupkg.sha512",
+    "C:\\Users\\Szymon\\.nuget\\packages\\zeroc.icebuilder.msbuild\\5.0.7\\zeroc.icebuilder.msbuild.5.0.7.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "Iw3MJnt8k3q7MxuHcmKJ5fPIqg8mw9Gn8TuOA4+CZi07pv62lnvp/ZwlT22J3HV9VGJH65qwanWoQuXdPnL1gA==",
+  "success": true,
+  "projectFilePath": "E:\\Uczelnia2021\\SystemyRozproszone\\lab6\\zadanie\\Ice\\ServerIce\\ServerIce.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Szymon\\.nuget\\packages\\zeroc.ice.net\\3.7.5\\zeroc.ice.net.3.7.5.nupkg.sha512",
+    "C:\\Users\\Szymon\\.nuget\\packages\\zeroc.icebuilder.msbuild\\5.0.7\\zeroc.icebuilder.msbuild.5.0.7.nupkg.sha512"
+  ],
+  "logs": []
+}

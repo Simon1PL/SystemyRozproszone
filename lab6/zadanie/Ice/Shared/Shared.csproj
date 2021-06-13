@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="zeroc.ice.net" Version="3.7.5" />
+    <PackageReference Include="zeroc.icebuilder.msbuild" Version="5.0.7" />
+    <SliceCompile Include="../Sth.ice" />
+  </ItemGroup>
+  
+</Project>
