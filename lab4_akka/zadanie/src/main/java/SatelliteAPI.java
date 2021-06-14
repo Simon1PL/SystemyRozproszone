@@ -11,7 +11,8 @@ public class SatelliteAPI {
         try {
             Thread.sleep(100 + rand.nextInt(400));
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
+            return null;
         }
         double p = rand.nextDouble();
         if (p < 0.8) return Status.OK;
