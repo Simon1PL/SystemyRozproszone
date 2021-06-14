@@ -201,6 +201,9 @@ namespace Shared
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
+        public int clientId;
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
         public string name;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
@@ -220,8 +223,9 @@ namespace Shared
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
-        public Case1Request(string name, bool hasVat)
+        public Case1Request(int clientId, string name, bool hasVat)
         {
+            this.clientId = clientId;
             this.name = name;
             this.hasVat = hasVat;
             ice_initialize();
@@ -246,6 +250,7 @@ namespace Shared
         {
             int h_ = 5381;
             global::IceInternal.HashUtil.hashAdd(ref h_, "::Shared::Case1Request");
+            global::IceInternal.HashUtil.hashAdd(ref h_, clientId);
             global::IceInternal.HashUtil.hashAdd(ref h_, name);
             global::IceInternal.HashUtil.hashAdd(ref h_, hasVat);
             return h_;
@@ -267,6 +272,10 @@ namespace Shared
                 return false;
             }
             Case1Request o = (Case1Request)other;
+            if(!this.clientId.Equals(o.clientId))
+            {
+                return false;
+            }
             if(this.name == null)
             {
                 if(o.name != null)
@@ -311,6 +320,7 @@ namespace Shared
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
         public void ice_writeMembers(global::Ice.OutputStream ostr)
         {
+            ostr.writeInt(this.clientId);
             ostr.writeString(this.name);
             ostr.writeBool(this.hasVat);
         }
@@ -318,6 +328,7 @@ namespace Shared
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
         public void ice_readMembers(global::Ice.InputStream istr)
         {
+            this.clientId = istr.readInt();
             this.name = istr.readString();
             this.hasVat = istr.readBool();
         }
@@ -364,6 +375,9 @@ namespace Shared
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
+        public int clientId;
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
         public int number;
 
         #endregion
@@ -373,8 +387,9 @@ namespace Shared
         #region Constructor
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
-        public Case2Request(int number)
+        public Case2Request(int clientId, int number)
         {
+            this.clientId = clientId;
             this.number = number;
             ice_initialize();
         }
@@ -388,6 +403,7 @@ namespace Shared
         {
             int h_ = 5381;
             global::IceInternal.HashUtil.hashAdd(ref h_, "::Shared::Case2Request");
+            global::IceInternal.HashUtil.hashAdd(ref h_, clientId);
             global::IceInternal.HashUtil.hashAdd(ref h_, number);
             return h_;
         }
@@ -400,6 +416,10 @@ namespace Shared
                 return false;
             }
             Case2Request o = (Case2Request)other;
+            if(!this.clientId.Equals(o.clientId))
+            {
+                return false;
+            }
             if(!this.number.Equals(o.number))
             {
                 return false;
@@ -430,12 +450,14 @@ namespace Shared
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
         public void ice_writeMembers(global::Ice.OutputStream ostr)
         {
+            ostr.writeInt(this.clientId);
             ostr.writeInt(this.number);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
         public void ice_readMembers(global::Ice.InputStream istr)
         {
+            this.clientId = istr.readInt();
             this.number = istr.readInt();
         }
 
@@ -635,6 +657,9 @@ namespace Shared
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
+        public int clientId;
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
         public Case3SubModel[] subModelList;
 
         #endregion
@@ -650,8 +675,9 @@ namespace Shared
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
-        public Case3Request(Case3SubModel[] subModelList)
+        public Case3Request(int clientId, Case3SubModel[] subModelList)
         {
+            this.clientId = clientId;
             this.subModelList = subModelList;
             ice_initialize();
         }
@@ -675,6 +701,7 @@ namespace Shared
         {
             int h_ = 5381;
             global::IceInternal.HashUtil.hashAdd(ref h_, "::Shared::Case3Request");
+            global::IceInternal.HashUtil.hashAdd(ref h_, clientId);
             global::IceInternal.HashUtil.hashAdd(ref h_, subModelList);
             return h_;
         }
@@ -695,6 +722,10 @@ namespace Shared
                 return false;
             }
             Case3Request o = (Case3Request)other;
+            if(!this.clientId.Equals(o.clientId))
+            {
+                return false;
+            }
             if(this.subModelList == null)
             {
                 if(o.subModelList != null)
@@ -735,12 +766,14 @@ namespace Shared
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
         public void ice_writeMembers(global::Ice.OutputStream ostr)
         {
+            ostr.writeInt(this.clientId);
             ListHelper.write(ostr, this.subModelList);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
         public void ice_readMembers(global::Ice.InputStream istr)
         {
+            this.clientId = istr.readInt();
             this.subModelList = ListHelper.read(istr);
         }
 
@@ -795,114 +828,32 @@ namespace Shared
         }
     }
 
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    [global::System.Serializable]
-    public partial struct CaseResponse
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
+    public enum @Case
     {
-        #region Slice data members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
-        public Response result;
-
-        #endregion
-
-        partial void ice_initialize();
-
-        #region Constructor
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
-        public CaseResponse(Response result)
-        {
-            this.result = result;
-            ice_initialize();
-        }
-
-        #endregion
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Shared::CaseResponse");
-            global::IceInternal.HashUtil.hashAdd(ref h_, result);
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
-        public override bool Equals(object other)
-        {
-            if(!(other is CaseResponse))
-            {
-                return false;
-            }
-            CaseResponse o = (CaseResponse)other;
-            if(!this.result.Equals(o.result))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
-        public static bool operator==(CaseResponse lhs, CaseResponse rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
-        public static bool operator!=(CaseResponse lhs, CaseResponse rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
-
-        #region Marshaling support
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
-        public void ice_writeMembers(global::Ice.OutputStream ostr)
-        {
-            ostr.writeEnum((int)this.result, 2);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.result = (Response)istr.readEnum(2);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
-        public static void ice_write(global::Ice.OutputStream ostr, CaseResponse v)
-        {
-            v.ice_writeMembers(ostr);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
-        public static CaseResponse ice_read(global::Ice.InputStream istr)
-        {
-            var v = new CaseResponse();
-            v.ice_readMembers(istr);
-            return v;
-        }
-
-        #endregion
+        Case1,
+        Case2,
+        Case3
     }
 
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
+    public sealed class CaseHelper
+    {
+        public static void write(global::Ice.OutputStream ostr, @Case v)
+        {
+            ostr.writeEnum((int)v, 2);
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
+        public static @Case read(global::Ice.InputStream istr)
+        {
+            @Case v;
+            v = (@Case)istr.readEnum(2);
+            return v;
+        }
+    }
+
+    [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
@@ -914,12 +865,12 @@ namespace Shared
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [global::System.Serializable]
-    public partial class Case1Response : global::System.ICloneable
+    public partial class CaseResponse : global::Ice.Value
     {
         #region Slice data members
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
-        public string price;
+        public @Case @case;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
         public Response result;
@@ -931,139 +882,147 @@ namespace Shared
         #region Constructors
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
-        public Case1Response()
+        public CaseResponse()
         {
-            this.price = "";
             ice_initialize();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
-        public Case1Response(string price, Response result)
+        public CaseResponse(@Case @case, Response result)
         {
-            this.price = price;
+            this.@case = @case;
             this.result = result;
             ice_initialize();
         }
 
         #endregion
 
-        #region ICloneable members
+        private const string _id = "::Shared::CaseResponse";
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
-        public object Clone()
+        public static new string ice_staticId()
         {
-            return MemberwiseClone();
+            return _id;
         }
-
-        #endregion
-
-        #region Object members
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
-        public override int GetHashCode()
+        public override string ice_id()
         {
-            int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Shared::Case1Response");
-            global::IceInternal.HashUtil.hashAdd(ref h_, price);
-            global::IceInternal.HashUtil.hashAdd(ref h_, result);
-            return h_;
+            return _id;
         }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
-        public override bool Equals(object other)
-        {
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            if(other == null)
-            {
-                return false;
-            }
-            if(GetType() != other.GetType())
-            {
-                return false;
-            }
-            Case1Response o = (Case1Response)other;
-            if(this.price == null)
-            {
-                if(o.price != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.price.Equals(o.price))
-                {
-                    return false;
-                }
-            }
-            if(!this.result.Equals(o.result))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
-        public static bool operator==(Case1Response lhs, Case1Response rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
-        public static bool operator!=(Case1Response lhs, Case1Response rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
 
         #region Marshaling support
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
-        public void ice_writeMembers(global::Ice.OutputStream ostr)
+        protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
         {
-            ostr.writeString(this.price);
-            ostr.writeEnum((int)this.result, 2);
+            ostr_.startSlice(ice_staticId(), -1, true);
+            ostr_.writeEnum((int)@case, 2);
+            ostr_.writeEnum((int)result, 2);
+            ostr_.endSlice();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
-        public void ice_readMembers(global::Ice.InputStream istr)
+        protected override void iceReadImpl(global::Ice.InputStream istr_)
         {
-            this.price = istr.readString();
-            this.result = (Response)istr.readEnum(2);
+            istr_.startSlice();
+            @case = (@Case)istr_.readEnum(2);
+            result = (Response)istr_.readEnum(2);
+            istr_.endSlice();
         }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
-        public static void ice_write(global::Ice.OutputStream ostr, Case1Response v)
-        {
-            if(v == null)
-            {
-                _nullMarshalValue.ice_writeMembers(ostr);
-            }
-            else
-            {
-                v.ice_writeMembers(ostr);
-            }
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
-        public static Case1Response ice_read(global::Ice.InputStream istr)
-        {
-            var v = new Case1Response();
-            v.ice_readMembers(istr);
-            return v;
-        }
-
-        private static readonly Case1Response _nullMarshalValue = new Case1Response();
 
         #endregion
+    }
+
+    [global::System.Runtime.InteropServices.ComVisible(false)]
+    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
+    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
+    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
+    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
+    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
+    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
+    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
+    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
+    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
+    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    [global::System.Serializable]
+    public partial class Case1Response : CaseResponse
+    {
+        #region Slice data members
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
+        public string price;
+
+        #endregion
+
+        partial void ice_initialize();
+
+        #region Constructors
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
+        public Case1Response() : base()
+        {
+            this.price = "";
+            ice_initialize();
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
+        public Case1Response(@Case @case, Response result, string price) : base(@case, result)
+        {
+            this.price = price;
+            ice_initialize();
+        }
+
+        #endregion
+
+        private const string _id = "::Shared::Case1Response";
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
+        public static new string ice_staticId()
+        {
+            return _id;
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
+        public override string ice_id()
+        {
+            return _id;
+        }
+
+        #region Marshaling support
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
+        protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
+        {
+            ostr_.startSlice(ice_staticId(), -1, false);
+            ostr_.writeString(price);
+            ostr_.endSlice();
+            base.iceWriteImpl(ostr_);
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
+        protected override void iceReadImpl(global::Ice.InputStream istr_)
+        {
+            istr_.startSlice();
+            price = istr_.readString();
+            istr_.endSlice();
+            base.iceReadImpl(istr_);
+        }
+
+        #endregion
+    }
+
+    [global::System.Runtime.InteropServices.ComVisible(false)]
+    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
+    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
+    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
+    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
+    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
+    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
+    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
+    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
+    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
+    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    public partial interface ClientProxy : global::Ice.Object, ClientProxyOperations_
+    {
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -1085,38 +1044,57 @@ namespace Shared
 namespace Shared
 {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
-    public delegate void Callback_CaseSolver_printString();
+    public delegate void Callback_ClientProxy_caseResponseMessage();
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
-    public delegate void Callback_CaseSolver_case1(Case1Response ret);
+    public delegate void Callback_CaseSolver_logIn(CaseResponse[] ret);
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
-    public delegate void Callback_CaseSolver_case2(CaseResponse ret);
+    public delegate void Callback_CaseSolver_case1(int ret);
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
-    public delegate void Callback_CaseSolver_case3(CaseResponse ret);
+    public delegate void Callback_CaseSolver_case2(int ret);
+
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
+    public delegate void Callback_CaseSolver_case3(int ret);
 }
 
 namespace Shared
 {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
+    public interface ClientProxyPrx : global::Ice.ObjectPrx
+    {
+        void caseResponseMessage(CaseResponse caseResponse, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+
+        global::System.Threading.Tasks.Task caseResponseMessageAsync(CaseResponse caseResponse, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+
+        global::Ice.AsyncResult<Callback_ClientProxy_caseResponseMessage> begin_caseResponseMessage(CaseResponse caseResponse, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+
+        global::Ice.AsyncResult begin_caseResponseMessage(CaseResponse caseResponse, global::Ice.AsyncCallback callback, object cookie);
+
+        global::Ice.AsyncResult begin_caseResponseMessage(CaseResponse caseResponse, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
+
+        void end_caseResponseMessage(global::Ice.AsyncResult asyncResult);
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
     public interface CaseSolverPrx : global::Ice.ObjectPrx
     {
-        void printString(string s, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        CaseResponse[] logIn(ClientProxyPrx client, int clientId, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
-        global::System.Threading.Tasks.Task printStringAsync(string s, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<CaseResponse[]> logInAsync(ClientProxyPrx client, int clientId, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
-        global::Ice.AsyncResult<Callback_CaseSolver_printString> begin_printString(string s, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        global::Ice.AsyncResult<Callback_CaseSolver_logIn> begin_logIn(ClientProxyPrx client, int clientId, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
-        global::Ice.AsyncResult begin_printString(string s, global::Ice.AsyncCallback callback, object cookie);
+        global::Ice.AsyncResult begin_logIn(ClientProxyPrx client, int clientId, global::Ice.AsyncCallback callback, object cookie);
 
-        global::Ice.AsyncResult begin_printString(string s, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
+        global::Ice.AsyncResult begin_logIn(ClientProxyPrx client, int clientId, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
-        void end_printString(global::Ice.AsyncResult asyncResult);
+        CaseResponse[] end_logIn(global::Ice.AsyncResult asyncResult);
 
-        Case1Response case1(Case1Request @case, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        int case1(Case1Request @case, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
-        global::System.Threading.Tasks.Task<Case1Response> case1Async(Case1Request @case, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<int> case1Async(Case1Request @case, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         global::Ice.AsyncResult<Callback_CaseSolver_case1> begin_case1(Case1Request @case, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
@@ -1124,11 +1102,11 @@ namespace Shared
 
         global::Ice.AsyncResult begin_case1(Case1Request @case, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
-        Case1Response end_case1(global::Ice.AsyncResult asyncResult);
+        int end_case1(global::Ice.AsyncResult asyncResult);
 
-        CaseResponse case2(Case2Request @case, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        int case2(Case2Request @case, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
-        global::System.Threading.Tasks.Task<CaseResponse> case2Async(Case2Request @case, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<int> case2Async(Case2Request @case, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         global::Ice.AsyncResult<Callback_CaseSolver_case2> begin_case2(Case2Request @case, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
@@ -1136,11 +1114,11 @@ namespace Shared
 
         global::Ice.AsyncResult begin_case2(Case2Request @case, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
-        CaseResponse end_case2(global::Ice.AsyncResult asyncResult);
+        int end_case2(global::Ice.AsyncResult asyncResult);
 
-        CaseResponse case3(Case3Request @case, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        int case3(Case3Request @case, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
-        global::System.Threading.Tasks.Task<CaseResponse> case3Async(Case3Request @case, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<int> case3Async(Case3Request @case, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         global::Ice.AsyncResult<Callback_CaseSolver_case3> begin_case3(Case3Request @case, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
@@ -1148,26 +1126,33 @@ namespace Shared
 
         global::Ice.AsyncResult begin_case3(Case3Request @case, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
-        CaseResponse end_case3(global::Ice.AsyncResult asyncResult);
+        int end_case3(global::Ice.AsyncResult asyncResult);
     }
 }
 
 namespace Shared
 {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
+    public interface ClientProxyOperations_
+    {
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
+        void caseResponseMessage(CaseResponse caseResponse, global::Ice.Current current = null);
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
     public interface CaseSolverOperations_
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
-        void printString(string s, global::Ice.Current current = null);
+        global::System.Threading.Tasks.Task<CaseResponse[]> logInAsync(ClientProxyPrx client, int clientId, global::Ice.Current current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
-        Case1Response case1(Case1Request @case, global::Ice.Current current = null);
+        int case1(Case1Request @case, global::Ice.Current current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
-        CaseResponse case2(Case2Request @case, global::Ice.Current current = null);
+        int case2(Case2Request @case, global::Ice.Current current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
-        CaseResponse case3(Case3Request @case, global::Ice.Current current = null);
+        int case3(Case3Request @case, global::Ice.Current current = null);
     }
 }
 
@@ -1208,6 +1193,284 @@ namespace Shared
         }
     }
 
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
+    public sealed class PrevResponsesHelper
+    {
+        public static void write(global::Ice.OutputStream ostr, CaseResponse[] v)
+        {
+            if(v == null)
+            {
+                ostr.writeSize(0);
+            }
+            else
+            {
+                ostr.writeSize(v.Length);
+                for(int ix = 0; ix < v.Length; ++ix)
+                {
+                    ostr.writeValue(v[ix]);
+                }
+            }
+        }
+
+        public static CaseResponse[] read(global::Ice.InputStream istr)
+        {
+            CaseResponse[] v;
+            {
+                int szx = istr.readAndCheckSeqSize(1);
+                v = new CaseResponse[szx];
+                for(int ix = 0; ix < szx; ++ix)
+                {
+                    istr.readValue(global::IceInternal.Patcher.arrayReadValue<CaseResponse>(v, ix));
+                }
+            }
+            return v;
+        }
+    }
+
+    [global::System.Runtime.InteropServices.ComVisible(false)]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
+    [global::System.Serializable]
+    public sealed class ClientProxyPrxHelper : global::Ice.ObjectPrxHelperBase, ClientProxyPrx
+    {
+        public ClientProxyPrxHelper()
+        {
+        }
+
+        public ClientProxyPrxHelper(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
+        {
+        }
+
+        #region Synchronous operations
+
+        public void caseResponseMessage(CaseResponse caseResponse, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        {
+            try
+            {
+                _iceI_caseResponseMessageAsync(caseResponse, context, null, global::System.Threading.CancellationToken.None, true).Wait();
+            }
+            catch(global::System.AggregateException ex_)
+            {
+                throw ex_.InnerException;
+            }
+        }
+
+        #endregion
+
+        #region Async Task operations
+
+        public global::System.Threading.Tasks.Task caseResponseMessageAsync(CaseResponse caseResponse, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        {
+            return _iceI_caseResponseMessageAsync(caseResponse, context, progress, cancel, false);
+        }
+
+        private global::System.Threading.Tasks.Task _iceI_caseResponseMessageAsync(CaseResponse iceP_caseResponse, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        {
+            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            _iceI_caseResponseMessage(iceP_caseResponse, context, synchronous, completed);
+            return completed.Task;
+        }
+
+        private const string _caseResponseMessage_name = "caseResponseMessage";
+
+        private void _iceI_caseResponseMessage(CaseResponse iceP_caseResponse, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        {
+            var outAsync = getOutgoingAsync<object>(completed);
+            outAsync.invoke(
+                _caseResponseMessage_name,
+                global::Ice.OperationMode.Normal,
+                global::Ice.FormatType.DefaultFormat,
+                context,
+                synchronous,
+                write: (global::Ice.OutputStream ostr) =>
+                {
+                    ostr.writeValue(iceP_caseResponse);
+                    ostr.writePendingValues();
+                });
+        }
+
+        #endregion
+
+        #region Asynchronous operations
+
+        public global::Ice.AsyncResult<Callback_ClientProxy_caseResponseMessage> begin_caseResponseMessage(CaseResponse caseResponse, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        {
+            return begin_caseResponseMessage(caseResponse, context, null, null, false);
+        }
+
+        public global::Ice.AsyncResult begin_caseResponseMessage(CaseResponse caseResponse, global::Ice.AsyncCallback callback, object cookie)
+        {
+            return begin_caseResponseMessage(caseResponse, new global::Ice.OptionalContext(), callback, cookie, false);
+        }
+
+        public global::Ice.AsyncResult begin_caseResponseMessage(CaseResponse caseResponse, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
+        {
+            return begin_caseResponseMessage(caseResponse, context, callback, cookie, false);
+        }
+
+        public void end_caseResponseMessage(global::Ice.AsyncResult asyncResult)
+        {
+            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _caseResponseMessage_name);
+            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
+        }
+
+        private global::Ice.AsyncResult<Callback_ClientProxy_caseResponseMessage> begin_caseResponseMessage(CaseResponse iceP_caseResponse, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
+        {
+            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_ClientProxy_caseResponseMessage, object>(
+                (Callback_ClientProxy_caseResponseMessage cb, object ret) =>
+                {
+                    if(cb != null)
+                    {
+                        cb.Invoke();
+                    }
+                },
+                this, _caseResponseMessage_name, cookie, completedCallback);
+            _iceI_caseResponseMessage(iceP_caseResponse, context, synchronous, completed);
+            return completed;
+        }
+
+        #endregion
+
+        #region Checked and unchecked cast operations
+
+        public static ClientProxyPrx checkedCast(global::Ice.ObjectPrx b)
+        {
+            if(b == null)
+            {
+                return null;
+            }
+            ClientProxyPrx r = b as ClientProxyPrx;
+            if((r == null) && b.ice_isA(ice_staticId()))
+            {
+                ClientProxyPrxHelper h = new ClientProxyPrxHelper();
+                h.iceCopyFrom(b);
+                r = h;
+            }
+            return r;
+        }
+
+        public static ClientProxyPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx)
+        {
+            if(b == null)
+            {
+                return null;
+            }
+            ClientProxyPrx r = b as ClientProxyPrx;
+            if((r == null) && b.ice_isA(ice_staticId(), ctx))
+            {
+                ClientProxyPrxHelper h = new ClientProxyPrxHelper();
+                h.iceCopyFrom(b);
+                r = h;
+            }
+            return r;
+        }
+
+        public static ClientProxyPrx checkedCast(global::Ice.ObjectPrx b, string f)
+        {
+            if(b == null)
+            {
+                return null;
+            }
+            global::Ice.ObjectPrx bb = b.ice_facet(f);
+            try
+            {
+                if(bb.ice_isA(ice_staticId()))
+                {
+                    ClientProxyPrxHelper h = new ClientProxyPrxHelper();
+                    h.iceCopyFrom(bb);
+                    return h;
+                }
+            }
+            catch(global::Ice.FacetNotExistException)
+            {
+            }
+            return null;
+        }
+
+        public static ClientProxyPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx)
+        {
+            if(b == null)
+            {
+                return null;
+            }
+            global::Ice.ObjectPrx bb = b.ice_facet(f);
+            try
+            {
+                if(bb.ice_isA(ice_staticId(), ctx))
+                {
+                    ClientProxyPrxHelper h = new ClientProxyPrxHelper();
+                    h.iceCopyFrom(bb);
+                    return h;
+                }
+            }
+            catch(global::Ice.FacetNotExistException)
+            {
+            }
+            return null;
+        }
+
+        public static ClientProxyPrx uncheckedCast(global::Ice.ObjectPrx b)
+        {
+            if(b == null)
+            {
+                return null;
+            }
+            ClientProxyPrx r = b as ClientProxyPrx;
+            if(r == null)
+            {
+                ClientProxyPrxHelper h = new ClientProxyPrxHelper();
+                h.iceCopyFrom(b);
+                r = h;
+            }
+            return r;
+        }
+
+        public static ClientProxyPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
+        {
+            if(b == null)
+            {
+                return null;
+            }
+            global::Ice.ObjectPrx bb = b.ice_facet(f);
+            ClientProxyPrxHelper h = new ClientProxyPrxHelper();
+            h.iceCopyFrom(bb);
+            return h;
+        }
+
+        private static readonly string[] _ids =
+        {
+            "::Ice::Object",
+            "::Shared::ClientProxy"
+        };
+
+        public static string ice_staticId()
+        {
+            return _ids[1];
+        }
+
+        #endregion
+
+        #region Marshaling support
+
+        public static void write(global::Ice.OutputStream ostr, ClientProxyPrx v)
+        {
+            ostr.writeProxy(v);
+        }
+
+        public static ClientProxyPrx read(global::Ice.InputStream istr)
+        {
+            global::Ice.ObjectPrx proxy = istr.readProxy();
+            if(proxy != null)
+            {
+                ClientProxyPrxHelper result = new ClientProxyPrxHelper();
+                result.iceCopyFrom(proxy);
+                return result;
+            }
+            return null;
+        }
+
+        #endregion
+    }
+
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
     [global::System.Serializable]
@@ -1223,11 +1486,11 @@ namespace Shared
 
         #region Synchronous operations
 
-        public void printString(string s, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public CaseResponse[] logIn(ClientProxyPrx client, int clientId, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
         {
             try
             {
-                _iceI_printStringAsync(s, context, null, global::System.Threading.CancellationToken.None, true).Wait();
+                return _iceI_logInAsync(client, clientId, context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
             catch(global::System.AggregateException ex_)
             {
@@ -1235,7 +1498,7 @@ namespace Shared
             }
         }
 
-        public Case1Response case1(Case1Request @case, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public int case1(Case1Request @case, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
         {
             try
             {
@@ -1247,7 +1510,7 @@ namespace Shared
             }
         }
 
-        public CaseResponse case2(Case2Request @case, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public int case2(Case2Request @case, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
         {
             try
             {
@@ -1259,7 +1522,7 @@ namespace Shared
             }
         }
 
-        public CaseResponse case3(Case3Request @case, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public int case3(Case3Request @case, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
         {
             try
             {
@@ -1275,44 +1538,53 @@ namespace Shared
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task printStringAsync(string s, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<CaseResponse[]> logInAsync(ClientProxyPrx client, int clientId, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
         {
-            return _iceI_printStringAsync(s, context, progress, cancel, false);
+            return _iceI_logInAsync(client, clientId, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_printStringAsync(string iceP_s, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<CaseResponse[]> _iceI_logInAsync(ClientProxyPrx iceP_client, int iceP_clientId, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
-            _iceI_printString(iceP_s, context, synchronous, completed);
+            iceCheckTwowayOnly(_logIn_name);
+            var completed = new global::IceInternal.OperationTaskCompletionCallback<CaseResponse[]>(progress, cancel);
+            _iceI_logIn(iceP_client, iceP_clientId, context, synchronous, completed);
             return completed.Task;
         }
 
-        private const string _printString_name = "printString";
+        private const string _logIn_name = "logIn";
 
-        private void _iceI_printString(string iceP_s, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_logIn(ClientProxyPrx iceP_client, int iceP_clientId, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<object>(completed);
+            var outAsync = getOutgoingAsync<CaseResponse[]>(completed);
             outAsync.invoke(
-                _printString_name,
+                _logIn_name,
                 global::Ice.OperationMode.Normal,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
                 write: (global::Ice.OutputStream ostr) =>
                 {
-                    ostr.writeString(iceP_s);
+                    ClientProxyPrxHelper.write(ostr, iceP_client);
+                    ostr.writeInt(iceP_clientId);
+                },
+                read: (global::Ice.InputStream istr) =>
+                {
+                    CaseResponse[] ret;
+                    ret = PrevResponsesHelper.read(istr);
+                    istr.readPendingValues();
+                    return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task<Case1Response> case1Async(Case1Request @case, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<int> case1Async(Case1Request @case, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
         {
             return _iceI_case1Async(@case, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<Case1Response> _iceI_case1Async(Case1Request iceP_case, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<int> _iceI_case1Async(Case1Request iceP_case, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_case1_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<Case1Response>(progress, cancel);
+            var completed = new global::IceInternal.OperationTaskCompletionCallback<int>(progress, cancel);
             _iceI_case1(iceP_case, context, synchronous, completed);
             return completed.Task;
         }
@@ -1321,7 +1593,7 @@ namespace Shared
 
         private void _iceI_case1(Case1Request iceP_case, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<Case1Response>(completed);
+            var outAsync = getOutgoingAsync<int>(completed);
             outAsync.invoke(
                 _case1_name,
                 global::Ice.OperationMode.Normal,
@@ -1348,21 +1620,21 @@ namespace Shared
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    Case1Response ret = null;
-                    ret = Case1Response.ice_read(istr);
+                    int ret;
+                    ret = istr.readInt();
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task<CaseResponse> case2Async(Case2Request @case, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<int> case2Async(Case2Request @case, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
         {
             return _iceI_case2Async(@case, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<CaseResponse> _iceI_case2Async(Case2Request iceP_case, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<int> _iceI_case2Async(Case2Request iceP_case, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_case2_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<CaseResponse>(progress, cancel);
+            var completed = new global::IceInternal.OperationTaskCompletionCallback<int>(progress, cancel);
             _iceI_case2(iceP_case, context, synchronous, completed);
             return completed.Task;
         }
@@ -1371,7 +1643,7 @@ namespace Shared
 
         private void _iceI_case2(Case2Request iceP_case, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<CaseResponse>(completed);
+            var outAsync = getOutgoingAsync<int>(completed);
             outAsync.invoke(
                 _case2_name,
                 global::Ice.OperationMode.Normal,
@@ -1398,21 +1670,21 @@ namespace Shared
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    CaseResponse ret = new CaseResponse();
-                    ret.ice_readMembers(istr);
+                    int ret;
+                    ret = istr.readInt();
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task<CaseResponse> case3Async(Case3Request @case, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<int> case3Async(Case3Request @case, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
         {
             return _iceI_case3Async(@case, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<CaseResponse> _iceI_case3Async(Case3Request iceP_case, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<int> _iceI_case3Async(Case3Request iceP_case, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_case3_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<CaseResponse>(progress, cancel);
+            var completed = new global::IceInternal.OperationTaskCompletionCallback<int>(progress, cancel);
             _iceI_case3(iceP_case, context, synchronous, completed);
             return completed.Task;
         }
@@ -1421,7 +1693,7 @@ namespace Shared
 
         private void _iceI_case3(Case3Request iceP_case, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<CaseResponse>(completed);
+            var outAsync = getOutgoingAsync<int>(completed);
             outAsync.invoke(
                 _case3_name,
                 global::Ice.OperationMode.Normal,
@@ -1448,8 +1720,8 @@ namespace Shared
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    CaseResponse ret = new CaseResponse();
-                    ret.ice_readMembers(istr);
+                    int ret;
+                    ret = istr.readInt();
                     return ret;
                 });
         }
@@ -1458,39 +1730,41 @@ namespace Shared
 
         #region Asynchronous operations
 
-        public global::Ice.AsyncResult<Callback_CaseSolver_printString> begin_printString(string s, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::Ice.AsyncResult<Callback_CaseSolver_logIn> begin_logIn(ClientProxyPrx client, int clientId, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
         {
-            return begin_printString(s, context, null, null, false);
+            return begin_logIn(client, clientId, context, null, null, false);
         }
 
-        public global::Ice.AsyncResult begin_printString(string s, global::Ice.AsyncCallback callback, object cookie)
+        public global::Ice.AsyncResult begin_logIn(ClientProxyPrx client, int clientId, global::Ice.AsyncCallback callback, object cookie)
         {
-            return begin_printString(s, new global::Ice.OptionalContext(), callback, cookie, false);
+            return begin_logIn(client, clientId, new global::Ice.OptionalContext(), callback, cookie, false);
         }
 
-        public global::Ice.AsyncResult begin_printString(string s, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
+        public global::Ice.AsyncResult begin_logIn(ClientProxyPrx client, int clientId, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
         {
-            return begin_printString(s, context, callback, cookie, false);
+            return begin_logIn(client, clientId, context, callback, cookie, false);
         }
 
-        public void end_printString(global::Ice.AsyncResult asyncResult)
+        public CaseResponse[] end_logIn(global::Ice.AsyncResult asyncResult)
         {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _printString_name);
-            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
+            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _logIn_name);
+            var outgoing_ = (global::IceInternal.OutgoingAsyncT<CaseResponse[]>)resultI_.OutgoingAsync;
+            return outgoing_.getResult(resultI_.wait());
         }
 
-        private global::Ice.AsyncResult<Callback_CaseSolver_printString> begin_printString(string iceP_s, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
+        private global::Ice.AsyncResult<Callback_CaseSolver_logIn> begin_logIn(ClientProxyPrx iceP_client, int iceP_clientId, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
         {
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_CaseSolver_printString, object>(
-                (Callback_CaseSolver_printString cb, object ret) =>
+            iceCheckAsyncTwowayOnly(_logIn_name);
+            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_CaseSolver_logIn, CaseResponse[]>(
+                (Callback_CaseSolver_logIn cb, CaseResponse[] ret) =>
                 {
                     if(cb != null)
                     {
-                        cb.Invoke();
+                        cb.Invoke(ret);
                     }
                 },
-                this, _printString_name, cookie, completedCallback);
-            _iceI_printString(iceP_s, context, synchronous, completed);
+                this, _logIn_name, cookie, completedCallback);
+            _iceI_logIn(iceP_client, iceP_clientId, context, synchronous, completed);
             return completed;
         }
 
@@ -1509,18 +1783,18 @@ namespace Shared
             return begin_case1(@case, context, callback, cookie, false);
         }
 
-        public Case1Response end_case1(global::Ice.AsyncResult asyncResult)
+        public int end_case1(global::Ice.AsyncResult asyncResult)
         {
             var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _case1_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<Case1Response>)resultI_.OutgoingAsync;
+            var outgoing_ = (global::IceInternal.OutgoingAsyncT<int>)resultI_.OutgoingAsync;
             return outgoing_.getResult(resultI_.wait());
         }
 
         private global::Ice.AsyncResult<Callback_CaseSolver_case1> begin_case1(Case1Request iceP_case, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
         {
             iceCheckAsyncTwowayOnly(_case1_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_CaseSolver_case1, Case1Response>(
-                (Callback_CaseSolver_case1 cb, Case1Response ret) =>
+            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_CaseSolver_case1, int>(
+                (Callback_CaseSolver_case1 cb, int ret) =>
                 {
                     if(cb != null)
                     {
@@ -1547,18 +1821,18 @@ namespace Shared
             return begin_case2(@case, context, callback, cookie, false);
         }
 
-        public CaseResponse end_case2(global::Ice.AsyncResult asyncResult)
+        public int end_case2(global::Ice.AsyncResult asyncResult)
         {
             var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _case2_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<CaseResponse>)resultI_.OutgoingAsync;
+            var outgoing_ = (global::IceInternal.OutgoingAsyncT<int>)resultI_.OutgoingAsync;
             return outgoing_.getResult(resultI_.wait());
         }
 
         private global::Ice.AsyncResult<Callback_CaseSolver_case2> begin_case2(Case2Request iceP_case, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
         {
             iceCheckAsyncTwowayOnly(_case2_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_CaseSolver_case2, CaseResponse>(
-                (Callback_CaseSolver_case2 cb, CaseResponse ret) =>
+            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_CaseSolver_case2, int>(
+                (Callback_CaseSolver_case2 cb, int ret) =>
                 {
                     if(cb != null)
                     {
@@ -1585,18 +1859,18 @@ namespace Shared
             return begin_case3(@case, context, callback, cookie, false);
         }
 
-        public CaseResponse end_case3(global::Ice.AsyncResult asyncResult)
+        public int end_case3(global::Ice.AsyncResult asyncResult)
         {
             var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _case3_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<CaseResponse>)resultI_.OutgoingAsync;
+            var outgoing_ = (global::IceInternal.OutgoingAsyncT<int>)resultI_.OutgoingAsync;
             return outgoing_.getResult(resultI_.wait());
         }
 
         private global::Ice.AsyncResult<Callback_CaseSolver_case3> begin_case3(Case3Request iceP_case, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
         {
             iceCheckAsyncTwowayOnly(_case3_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_CaseSolver_case3, CaseResponse>(
-                (Callback_CaseSolver_case3 cb, CaseResponse ret) =>
+            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_CaseSolver_case3, int>(
+                (Callback_CaseSolver_case3 cb, int ret) =>
                 {
                     if(cb != null)
                     {
@@ -1756,17 +2030,123 @@ namespace Shared
 {
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
+    public abstract class ClientProxyDisp_ : global::Ice.ObjectImpl, ClientProxy
+    {
+        #region Slice operations
+
+        public abstract void caseResponseMessage(CaseResponse caseResponse, global::Ice.Current current = null);
+
+        #endregion
+
+        #region Slice type-related members
+
+        private static readonly string[] _ids =
+        {
+            "::Ice::Object",
+            "::Shared::ClientProxy"
+        };
+
+        public override bool ice_isA(string s, global::Ice.Current current = null)
+        {
+            return global::System.Array.BinarySearch(_ids, s, IceUtilInternal.StringUtil.OrdinalStringComparer) >= 0;
+        }
+
+        public override string[] ice_ids(global::Ice.Current current = null)
+        {
+            return _ids;
+        }
+
+        public override string ice_id(global::Ice.Current current = null)
+        {
+            return _ids[1];
+        }
+
+        public static new string ice_staticId()
+        {
+            return _ids[1];
+        }
+
+        #endregion
+
+        #region Operation dispatch
+
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        iceD_caseResponseMessage(ClientProxy obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        {
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
+            var istr = inS.startReadParams();
+            CaseResponse iceP_caseResponse;
+            iceP_caseResponse = null;
+            istr.readValue((CaseResponse v) => {iceP_caseResponse = v; });
+            istr.readPendingValues();
+            inS.endReadParams();
+            obj.caseResponseMessage(iceP_caseResponse, current);
+            return inS.setResult(inS.writeEmptyParams());
+        }
+
+        private static readonly string[] _all =
+        {
+            "caseResponseMessage",
+            "ice_id",
+            "ice_ids",
+            "ice_isA",
+            "ice_ping"
+        };
+
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        iceDispatch(global::IceInternal.Incoming inS, global::Ice.Current current)
+        {
+            int pos = global::System.Array.BinarySearch(_all, current.operation, global::IceUtilInternal.StringUtil.OrdinalStringComparer);
+            if(pos < 0)
+            {
+                throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
+            }
+
+            switch(pos)
+            {
+                case 0:
+                {
+                    return iceD_caseResponseMessage(this, inS, current);
+                }
+                case 1:
+                {
+                    return global::Ice.ObjectImpl.iceD_ice_id(this, inS, current);
+                }
+                case 2:
+                {
+                    return global::Ice.ObjectImpl.iceD_ice_ids(this, inS, current);
+                }
+                case 3:
+                {
+                    return global::Ice.ObjectImpl.iceD_ice_isA(this, inS, current);
+                }
+                case 4:
+                {
+                    return global::Ice.ObjectImpl.iceD_ice_ping(this, inS, current);
+                }
+            }
+
+            global::System.Diagnostics.Debug.Assert(false);
+            throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
+        }
+
+        #endregion
+    }
+
+    [global::System.Runtime.InteropServices.ComVisible(false)]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.5")]
     public abstract class CaseSolverDisp_ : global::Ice.ObjectImpl, CaseSolver
     {
         #region Slice operations
 
-        public abstract void printString(string s, global::Ice.Current current = null);
+        public abstract global::System.Threading.Tasks.Task<CaseResponse[]> logInAsync(ClientProxyPrx client, int clientId, global::Ice.Current current = null);
 
-        public abstract Case1Response case1(Case1Request @case, global::Ice.Current current = null);
+        public abstract int case1(Case1Request @case, global::Ice.Current current = null);
 
-        public abstract CaseResponse case2(Case2Request @case, global::Ice.Current current = null);
+        public abstract int case2(Case2Request @case, global::Ice.Current current = null);
 
-        public abstract CaseResponse case3(Case3Request @case, global::Ice.Current current = null);
+        public abstract int case3(Case3Request @case, global::Ice.Current current = null);
 
         #endregion
 
@@ -1804,15 +2184,21 @@ namespace Shared
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_printString(CaseSolver obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_logIn(CaseSolver obj, global::IceInternal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            string iceP_s;
-            iceP_s = istr.readString();
+            ClientProxyPrx iceP_client;
+            int iceP_clientId;
+            iceP_client = ClientProxyPrxHelper.read(istr);
+            iceP_clientId = istr.readInt();
             inS.endReadParams();
-            obj.printString(iceP_s, current);
-            return inS.setResult(inS.writeEmptyParams());
+            return inS.setResultTask<CaseResponse[]>(obj.logInAsync(iceP_client, iceP_clientId, current),
+                (ostr, ret) =>
+                {
+                    PrevResponsesHelper.write(ostr, ret);
+                    ostr.writePendingValues();
+                });
         }
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
@@ -1827,7 +2213,7 @@ namespace Shared
             inS.endReadParams();
             var ret = obj.case1(iceP_case, current);
             var ostr = inS.startWriteParams();
-            Case1Response.ice_write(ostr, ret);
+            ostr.writeInt(ret);
             inS.endWriteParams(ostr);
             return inS.setResult(ostr);
         }
@@ -1844,7 +2230,7 @@ namespace Shared
             inS.endReadParams();
             var ret = obj.case2(iceP_case, current);
             var ostr = inS.startWriteParams();
-            ret.ice_writeMembers(ostr);
+            ostr.writeInt(ret);
             inS.endWriteParams(ostr);
             return inS.setResult(ostr);
         }
@@ -1861,7 +2247,7 @@ namespace Shared
             inS.endReadParams();
             var ret = obj.case3(iceP_case, current);
             var ostr = inS.startWriteParams();
-            ret.ice_writeMembers(ostr);
+            ostr.writeInt(ret);
             inS.endWriteParams(ostr);
             return inS.setResult(ostr);
         }
@@ -1875,7 +2261,7 @@ namespace Shared
             "ice_ids",
             "ice_isA",
             "ice_ping",
-            "printString"
+            "logIn"
         };
 
         public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
@@ -1919,7 +2305,7 @@ namespace Shared
                 }
                 case 7:
                 {
-                    return iceD_printString(this, inS, current);
+                    return iceD_logIn(this, inS, current);
                 }
             }
 

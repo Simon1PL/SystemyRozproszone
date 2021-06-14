@@ -7,12 +7,14 @@ module Shared
 
     struct Case1Request
     {   
+        int clientId;
         string name;
         bool hasVat;
     }
 
     struct Case2Request
     {   
+        int clientId;
         int number;
     }
 
@@ -26,27 +28,36 @@ module Shared
 
     struct Case3Request
     {   
+        int clientId;
         List subModelList;
     }
 
     enum Response { Fail, Git, Sth }
+    enum Case { Case1, Case2, Case3 }
 
-    struct CaseResponse
+    class CaseResponse
     {   
+        Case case;
         Response result;
     }
 
-    struct Case1Response
+    class Case1Response extends CaseResponse
     {   
         string price;
-        Response result;
+    }
+
+    sequence<CaseResponse> PrevResponses;
+
+    interface ClientProxy
+    {
+        void caseResponseMessage(CaseResponse caseResponse);
     }
 
     interface CaseSolver
     {
-        void printString(string s);
-        Case1Response case1(Case1Request case) throws CaseError;
-        CaseResponse case2(Case2Request case) throws CaseError;
-        CaseResponse case3(Case3Request case) throws CaseError;
+        ["amd"] PrevResponses logIn(ClientProxy* client, int clientId);
+        int case1(Case1Request case) throws CaseError;
+        int case2(Case2Request case) throws CaseError;
+        int case3(Case3Request case) throws CaseError;
     }
 }
